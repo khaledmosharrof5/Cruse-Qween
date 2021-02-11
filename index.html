@@ -57,22 +57,31 @@
             </div>
             <div class="input-group f-class">
                 <div>
-                    <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <label id="firstclass-total" for="">First Class ($150)</label>
+
+                    <input id="firstclass-count" class="inp-style inp-width" type="number" name="" value="1">
                 </div>
-                <div class="plus-minus-btn">
-                    <p>+ -</p>
-                </div>
+                 <div id="firstclass-increase" class="plus-btn">
+                    <p>+</p>
+                 </div>
+                 <div id="firstclass-decrease" class="minus-btn">
+                    <p>-</p>
+                 </div>
             </div>
-            
-            <div class="input-group f-class">
-                <div>
-                    <label for="">Economy ($100)</label>
-                    <input class="inp-style inp-width" type="number" name="">
-                </div>
-                <div class="plus-minus-btn">
-                    <p> <span>+</span> <span>-</span> </p>
-                </div>
+
+                <div class="input-group f-class">
+                  <div>
+                
+                    <label id="economy-total" for="">Economy ($100)</label>
+                    <input id="economy-count" class="inp-style inp-width" type="number" name="" value="1">
+                  </div>
+                
+                  <div id="economy-increase" class="plus-btn">
+                    <p> <span>+</span> </p>
+                   </div>
+                  <div id="economy-decrease" class="minus-btn">
+                     <p> <span>-</span> </p>
+                 </div>
             </div>
             <div class="calculations">
                 <div class="amount">
@@ -107,6 +116,78 @@
     </main>
 
     <!--Thank You-->
+    <script>
+        //   document.getElementById('firstclass-increase').addEventListener('click', function(){
+        //     const firstclassInput = document.getElementById('firstclass-count');
+        //     const firstclassCount = parseInt(firstclassInput.value);
+        //     const firstclassNewCount = firstclassCount + 1;
+        //     firstclassInput.value = firstclassNewCount; 
+        //     const firstclassTotal = firstclassNewCount * 150;
+        //     document.getElementById('firstclass-total').innerText = 'First Class' + ' ' + '(' + '$' + firstclassTotal + ')';
+        //   }) 
+
+        document.getElementById('firstclass-increase').addEventListener('click', function(){
+           classChange(true);
+          }) 
+        document.getElementById('firstclass-decrease').addEventListener('click', function(){
+           classChange(false);
+          }) 
+        
+        function classChange(isIncrese){
+            const firstclassInput = document.getElementById('firstclass-count');
+             const firstclassCount = parseInt(firstclassInput.value);
+        //     const firstclassNewCount = firstclassCount - 1;
+             let firstclassNewCount = firstclassCount;
+             if(isIncrese == true){
+                 firstclassNewCount = firstclassCount + 1;
+             } 
+             if(isIncrese == false && firstclassCount > 0){
+                firstclassNewCount = firstclassCount - 1;
+             } 
+             firstclassInput.value = firstclassNewCount; 
+            const firstclassTotal = firstclassNewCount * 150;
+            document.getElementById('firstclass-total').innerText = 'First Class' + ' ' +'(' + '$' + firstclassTotal + ')';
+        }
+
+        //   document.getElementById('economy-increase').addEventListener('click', function(){
+        //     const economyInput = document.getElementById('economy-count');
+        //     const economyCount = parseInt(economyInput.value);
+        //     const economyNewCount = economyCount + 1;
+        //     economyInput.value = economyNewCount; 
+        //     const economyTotal = economyNewCount * 150;
+        //     document.getElementById('economy-total').innerText = 'economy' + ' ' + '(' + '$' + economyTotal + ')';
+        //   }) 
+        //   document.getElementById('economy-decrease').addEventListener('click', function(){
+        //     const economyInput = document.getElementById('economy-count');
+        //     const economyCount = parseInt(economyInput.value);
+        //     const economyNewCount = economyCount - 1;
+        //     economyInput.value = economyNewCount; 
+        //     const economyTotal = economyNewCount * 150;
+        //     document.getElementById('economy-total').innerText = 'economy' + ' ' + '(' + '$' + economyTotal + ')';
+        //   }) 
+        
+          document.getElementById('economy-increase').addEventListener('click', function(){
+            economyChange(true);
+          }) 
+          document.getElementById('economy-decrease').addEventListener('click', function(){
+            economyChange(false);
+          }) 
+          
+          function economyChange(isIncrese){
+            const economyInput = document.getElementById('economy-count');
+             const economyCount = parseInt(economyInput.value);
+             let economyNewCount = economyCount;
+             if(isIncrese == true){
+                economyNewCount = economyCount + 1;
+             } 
+             if(isIncrese == false && economyCount > 0){
+                economyNewCount = economyCount - 1;
+             } 
+             economyInput.value = economyNewCount; 
+            const economyTotal = economyNewCount * 150;
+            document.getElementById('economy-total').innerText = 'economy' + ' ' +'(' + '$' + economyTotal + ')';
+        }
+    </script>
 </body>
 
 </html>
